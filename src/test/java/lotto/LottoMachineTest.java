@@ -11,9 +11,10 @@ class LottoMachineTest {
         int count = 8;
 
         // when
-        LottoMachine machine = new LottoMachine(count);
+        LottoMachine machine = new LottoMachine();
+        Lotto[] lottoList = machine.createLottoMachine(count);
 
         // then
-        assertThat(machine.getLottoList()).hasSize(count);
+        assertThat(lottoList).hasSize(count);
     }
 }

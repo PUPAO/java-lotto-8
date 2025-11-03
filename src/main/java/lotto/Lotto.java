@@ -20,6 +20,10 @@ public class Lotto {
         return (int) numbers.stream().filter(winningNumbers::contains).count();
     }
 
+    public String getLotto(){
+        return numbers.toString();
+    }
+
     // 보너스 포함 여부 반환
     public boolean containsBonus(int bonusNumber) {
         return numbers.contains(bonusNumber);
