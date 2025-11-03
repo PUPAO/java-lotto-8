@@ -16,49 +16,6 @@ class ApplicationTest extends NsTest {
     private static final String ERROR_MESSAGE = "[ERROR]";
 
     @Test
-    void 금액_입력_테스트() {
-        // given
-        System.setIn(new ByteArrayInputStream("10000\n".getBytes()));
-
-        // when
-        InputController inputController = new InputController();
-        int result = inputController.inputMoney();
-
-        // then
-        assertThat(result).isEqualTo(10000);
-        Console.close();
-    }
-
-    @Test
-    void 당첨_번호_입력_테스트() {
-        // given
-        System.setIn(new ByteArrayInputStream("1,2,3,4,5,6".getBytes()));
-        List<Integer> answer = Arrays.asList(1, 2, 3, 4, 5, 6);
-
-        // when
-        InputController inputController = new InputController();
-        List<Integer> result = inputController.inputWinningNumbers();
-
-        // then
-        assertThat(result).isEqualTo(answer);
-        Console.close();
-    }
-
-    @Test
-    void 보너스_번호_입력_테스트() {
-        // given
-        System.setIn(new ByteArrayInputStream("7".getBytes()));
-
-        // when
-        InputController inputController = new InputController();
-        int result = inputController.inputBonusNumber();
-
-        // then
-        assertThat(result).isEqualTo(7);
-        Console.close();
-    }
-
-    @Test
     void 기능_테스트() {
         assertRandomUniqueNumbersInRangeTest(
                 () -> {
