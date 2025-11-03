@@ -45,6 +45,20 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 보너스_번호_입력_테스트() {
+        // given
+        System.setIn(new ByteArrayInputStream("7".getBytes()));
+
+        // when
+        InputController inputController = new InputController();
+        int result = inputController.inputBonusNumber();
+
+        // then
+        assertThat(result).isEqualTo(7);
+        Console.close();
+    }
+
+    @Test
     void 기능_테스트() {
         assertRandomUniqueNumbersInRangeTest(
                 () -> {
