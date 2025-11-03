@@ -19,4 +19,9 @@ public class Lotto {
     public int matchCount(List<Integer> winningNumbers) {
         return (int) numbers.stream().filter(winningNumbers::contains).count();
     }
+
+    // 보너스 포함 여부 반환
+    public boolean containsBonus(int bonusNumber) {
+        return numbers.contains(bonusNumber);
+    }
 }
