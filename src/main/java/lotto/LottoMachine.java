@@ -1,7 +1,9 @@
 package lotto;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LottoMachine {
     private Lotto[] lottoList;
@@ -14,6 +16,23 @@ public class LottoMachine {
             lottoList[i] = new Lotto(lottoNumberList);
         }
         return lottoList;
+    }
+
+
+    public Map<Rank, Integer> checkResult(List<Integer> winningNumbers, int bonus) {
+        Map<Rank, Integer> result = new HashMap<>();
+
+        for (Lotto lotto : lottoList) {
+            int matchCount = lotto.matchCount(winningNumbers);
+            boolean hasBonus = lotto.containsBonus(bonus);
+            Rank rank = Rank.valueOf(matchCount, hasBonus);
+
+            if (rank != Rank.NONE) {
+                result.put(rank, result.getOrDefault(rank, 0) + 1);
+            }
+        }
+
+        return result;
     }
 
 }
