@@ -1,6 +1,8 @@
 package lotto;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,6 +13,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ApplicationTest extends NsTest {
     private static final String ERROR_MESSAGE = "[ERROR]";
+
+    @Test
+    void 금액_입력_테스트() {
+        // given
+        System.setIn(new ByteArrayInputStream("10000\n".getBytes()));
+
+        // when
+        InputController inputController = new InputController();
+        int result = inputController.inputMoney();
+
+        // then
+        assertThat(result).isEqualTo(10000);
+        Console.close();
+    }
 
     @Test
     void 기능_테스트() {
