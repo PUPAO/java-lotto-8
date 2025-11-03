@@ -17,4 +17,9 @@ public class InputController {
                 .map(Integer::parseInt)
                 .toList();
     }
+
+    public int inputBonusNumber() {
+        int bonusNumber = Integer.parseInt(Console.readLine());
+        return bonusNumber;
+    }
 }
